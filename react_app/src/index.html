@@ -1,0 +1,156 @@
+<!doctype html public "display of affection">
+<html>
+<head>
+<body>
+<title>Authentication Flow Example using React Flux</title>
+<link rel="stylesheet" media="screen" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<script src="assets/lib/sweet-alert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="assets/lib/sweet-alert.css">
+<script src="//www.parsecdn.com/js/parse-1.3.5.min.js"></script>
+<link rel="stylesheet" href="assets/global.css"/>
+<script>
+	/* please use your own keys from parse.com 
+		
+		// Regarding to some opinions
+		// the best is to use Parse from CDN (not NPM module)
+		// because there are some time consuming issues regarding
+		// Browserify ...
+	*/
+	Parse.initialize("6Y1thpza6ZmfUKLG8HAV2gAMciWfORn3Eh0YRmIE", "EwL2wkstnoAn8oaipAl2bDTDmGLWlum7u1Tfp0po");
+</script>
+
+</head>
+<body>
+<div id="example"/>
+<script src="js/main.js"></script>
+</div>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<!--
+Copyright 2012 Mozilla Foundation
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+Adobe CMap resources are covered by their own copyright and license:
+http://sourceforge.net/adobe/cmap/wiki/License/
+-->
+<html dir="ltr" mozdisallowselectionprint moznomarginboxes>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!--#if GENERIC || CHROME-->
+    <meta name="google" content="notranslate">
+<!--#endif-->
+    <title>PDF.js viewer</title>
+
+<!--#if FIREFOX || MOZCENTRAL-->
+<!--#include viewer-snippet-firefox-extension.html-->
+<!--#endif-->
+<!--#if CHROME-->
+<!--#include viewer-snippet-chrome-extension.html-->
+<!--#endif-->
+
+    <link rel="stylesheet" href="viewer.css"/>
+<!--#if !PRODUCTION-->
+    <link rel="resource" type="application/l10n" href="locale/locale.properties"/>
+<!--#endif-->
+
+<!--#if !(MOZCENTRAL || CHROME || MINIFIED)-->
+    <script src="compatibility.js"></script>
+<!--#endif-->
+
+<!--#if !PRODUCTION-->
+    <script src="../external/webL10n/l10n.js"></script>
+<!--#endif-->
+
+<!--#if !PRODUCTION-->
+    <script src="../src/shared/util.js"></script>
+    <script src="../src/display/api.js"></script>
+    <script src="../src/display/metadata.js"></script>
+    <script src="../src/display/canvas.js"></script>
+    <script src="../src/display/webgl.js"></script>
+    <script src="../src/display/pattern_helper.js"></script>
+    <script src="../src/display/font_loader.js"></script>
+    <script src="../src/display/annotation_helper.js"></script>
+    <script>PDFJS.workerSrc = '../src/worker_loader.js';</script>
+<!--#endif-->
+
+<!--#if (GENERIC && !MINIFIED) -->
+<!--#include viewer-snippet.html-->
+<!--#endif-->
+
+<!--#if !PRODUCTION-->
+    <script src="ui_utils.js"></script>
+    <script src="default_preferences.js"></script>
+    <script src="preferences.js"></script>
+    <script src="download_manager.js"></script>
+    <script src="view_history.js"></script>
+    <script src="pdf_rendering_queue.js"></script>
+    <script src="pdf_page_view.js"></script>
+    <script src="text_layer_builder.js"></script>
+    <script src="annotations_layer_builder.js"></script>
+    <script src="pdf_viewer.js"></script>
+    <script src="pdf_thumbnail_view.js"></script>
+    <script src="pdf_thumbnail_viewer.js"></script>
+    <script src="pdf_outline_view.js"></script>
+    <script src="pdf_attachment_view.js"></script>
+    <script src="pdf_find_bar.js"></script>
+    <script src="pdf_find_controller.js"></script>
+    <script src="pdf_history.js"></script>
+    <script src="secondary_toolbar.js"></script>
+    <script src="presentation_mode.js"></script>
+    <script src="grab_to_pan.js"></script>
+    <script src="hand_tool.js"></script>
+    <script src="overlay_manager.js"></script>
+    <script src="password_prompt.js"></script>
+    <script src="document_properties.js"></script>
+<!--#endif-->
+
+<!--#if !MINIFIED -->
+    <script src="debugger.js"></script>
+    <script src="viewer.js"></script>
+<!--#else-->
+<!--#include viewer-snippet-minified.html-->
+<!--#endif-->
+
+  </head>
+
+  <body tabindex="1" class="loadingInProgress">
+  <div style="margin-top: 50px;"> 
+    <h1>TOP HEADER </h1>
+  </div>
+    <div id="outerContainer" style="height: calc(100% - 50px)">
+      <div style="float: right; margin-right: 20px;"><h1>RIGHT</h1></div>
+
+
+
+			<div id="example"></div>
+			<script src="js/main.js"></script>
+
+    	</div> <!-- outerContainer -->
+
+
+
+
+
+    <div id="printContainer"></div>
+<!--#if !(FIREFOX || MOZCENTRAL)-->
+<!--#include viewer-snippet-mozPrintCallback-polyfill.html-->
+<!--#endif-->
+  </body>
+</html>
+
