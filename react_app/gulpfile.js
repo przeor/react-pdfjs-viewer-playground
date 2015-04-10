@@ -16,24 +16,24 @@ gulp
         })
       )
       .pipe(concat('main.js'))
-      .pipe(gulp.dest('dist/js'));
+      .pipe(gulp.dest('../web/js'));
   })
 
   // moves source files to dist
   .task('copy', function(){
     gulp
       .src('src/index.html')
-      .pipe(gulp.dest('dist'));
+      .pipe(gulp.dest('../web'));
 	 
      gulp
       .src('src/assets/**/*.*')
-      .pipe(gulp.dest('dist/assets'));
+      .pipe(gulp.dest('../web/assets'));
   })
 
   // local development server
   .task('connect', function(){
     connect.server({
-      root: ['dist'],
+      root: ['../web/'],
       port: '8080',
       base: 'http://localhost',
       livereload: true
@@ -43,14 +43,15 @@ gulp
   // opens the application in chrome
   .task('open', function(){
     gulp
-      .src('dist/index.html')
+      .src('../web/index.html')
       .pipe(
         open('', { url: 'http://localhost:8080/' })
       );
   })
 
   // build the application
-  .task('default', ['browserify', 'copy', 'connect', 'open'])
+  // .task('default', ['browserify', 'copy', 'connect', 'open'])
+  .task('default', ['browserify', 'copy'])
   
   // watch for source changes
   .task('watch', function(){
