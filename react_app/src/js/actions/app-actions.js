@@ -4,9 +4,10 @@ var AppDispatcher = require('../dispatchers/app-dispatcher.js');
 
 var AppActions = {
 
-  addItem:function(){
+  addItem:function(PosObj){
     AppDispatcher.handleViewAction({
-      actionType: AppConstants.ADD_ITEM
+      'actionType': AppConstants.ADD_ITEM,
+      'PosObj': PosObj
     })
   }
 };
@@ -14,9 +15,10 @@ var AppActions = {
 console.log('startujemy',window);
 
 
-window.addItemTest = function () {
+window.addItemTest = function (PosObj) {
     console.log('actionsAddItem');
-    AppActions.addItem();
+    //alert(JSON.stringify(PosObj));
+    AppActions.addItem(PosObj);
 };
 
 module.exports = AppActions;

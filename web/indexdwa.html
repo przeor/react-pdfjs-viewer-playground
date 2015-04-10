@@ -135,11 +135,14 @@ http://sourceforge.net/adobe/cmap/wiki/License/
       }, 10);
 
       $('.page').click(function (a) {
-        window.addItemTest({x:0,y:1});
+        
         var offset = $(a.target).parents('.page').offset();
         var posY = offset.top + 9 - $(window).scrollTop();
         var posX = offset.left + 9 - $(window).scrollLeft(); 
-        $("<div>x "+(a.pageX - posX)+"<br>y "+(a.pageY - posY)+"</div>")
+        var posXclick = a.pageX - posX;
+        var posYclick = a.pageY - posY;
+
+        $("<div>x "+(posXclick)+"<br>y "+(posYclick)+"</div>")
         .css({
           backgroundColor: 'pink',
           position: 'absolute',
@@ -150,10 +153,11 @@ http://sourceforge.net/adobe/cmap/wiki/License/
           borderRadius: '.3em',
           textAlign: 'center',
           border: '.1em solid red',
-          left: (((a.pageX - posX) / parseInt($(a.target).parents('.page').css('width')) * 81.6 ) - 4) + 'em',
-          top: (((a.pageY - posY) / parseInt($(a.target).parents('.page').css('height')) * 105.6 ) - 1.5) + 'em'
+          left: (((posXclick) / parseInt($(a.target).parents('.page').css('width')) * 81.6 ) - 4) + 'em',
+          top: (((posYclick) / parseInt($(a.target).parents('.page').css('height')) * 105.6 ) - 1.5) + 'em'
         })
         .appendTo($(a.target).parents('.page'));
+        window.addItemTest({x:posXclick,y:posYclick});
       });
     }, 5000);
   });

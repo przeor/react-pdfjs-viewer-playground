@@ -8,10 +8,12 @@ var CHANGE_EVENT = "change";
 
 var _cartItems = [];
 
-function _addItem(item){
+function _addItem(payload){
+  PosObj = payload.PosObj;
   console.log("ADD ITEM done - just an example");
-  alert("ADD ITEM done - just an example - check the console log for an output");
-  _cartItems.push(Math.random());
+  // alert("ADD ITEM done - just an example - check the console log for an output");
+  _cartItems.push(PosObj);
+  alert(JSON.stringify(_cartItems));
 }
 
 
@@ -37,7 +39,7 @@ var AppStore = merge(EventEmitter.prototype, {
     var action = payload.action; // this is our action from handleViewAction
     switch(action.actionType){
       case AppConstants.ADD_ITEM:
-        _addItem(payload.action.item);
+        _addItem(action);
         break;
     }
     AppStore.emitChange();
